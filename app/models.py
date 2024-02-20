@@ -1,9 +1,4 @@
 from dataclasses import dataclass
-from typing import Set
-from typing import List as PythonList
-
-from sqlalchemy.orm import Mapped
-
 from app.extensions import db
 
 
@@ -18,10 +13,10 @@ user_list = db.Table(
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), nullable=False, unique=True)
-    password = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(256), nullable=False)
     lists = db.relationship('List', secondary=user_list, back_populates='users', lazy=True)
 
-    def add_list(self, list):
+    def add_list(self, list: 'List'):
         self.lists.append(list)
 
 
@@ -40,9 +35,6 @@ class List(db.Model):
             if user == current_user:
                 return True
             return False
-
-    # def add_item(self, item):
-    #     self.item_lists.append(item)
 
 
 @dataclass

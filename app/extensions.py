@@ -1,8 +1,10 @@
+from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 jwt = JWTManager()
+cors = CORS()
 
 
 # Register a callback function that takes whatever object is passed in as the

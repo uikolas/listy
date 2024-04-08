@@ -7,9 +7,10 @@ def create_app():
 
     app.config.from_mapping(dotenv_values())
 
-    from app.extensions import db, jwt
+    from app.extensions import db, jwt, cors
     db.init_app(app)
     jwt.init_app(app)
+    cors.init_app(app)
 
     from app.blueprints import list, list_item, grocery, auth
     app.register_blueprint(list.blueprint)

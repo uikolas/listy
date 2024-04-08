@@ -3,5 +3,5 @@ from dotenv import load_dotenv
 
 load_dotenv('.env')
 
-app.create_app()
+application = app.create_app()
 

@@ -15,8 +15,8 @@ def load_env():
 @pytest.fixture()
 def app_test():
     test_app = app.create_app()
-    config = dotenv_values(find_dotenv('.env.test'))
-    test_app.config.from_mapping(config)
+    test_app.config['TESTING'] = True
+    test_app.config['DEBUG'] = True
 
     with test_app.app_context():
         db.create_all()

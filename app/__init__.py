@@ -1,11 +1,10 @@
-from dotenv import dotenv_values
 from flask import Flask, jsonify
 
 
 def create_app():
     app = Flask(__name__)
 
-    app.config.from_mapping(dotenv_values())
+    app.config.from_object('app.config')
 
     from app.extensions import db, jwt, cors
     db.init_app(app)

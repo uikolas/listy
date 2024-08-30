@@ -12,3 +12,4 @@ def search_emoji(keyword):
         raise ClientException('Failed to find')
 
     return json[0]['character']
+

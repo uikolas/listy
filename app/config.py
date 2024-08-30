@@ -1,7 +1,7 @@
 import os
 
 TESTING = False
-DEBUG = False
+DEBUG = True
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 JWT_SECRET_KEY = os.environ.get('SECRET_KEY')
